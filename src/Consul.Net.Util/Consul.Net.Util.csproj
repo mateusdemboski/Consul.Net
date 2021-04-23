@@ -13,6 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup Label="Package References">
+    <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
   </ItemGroup>
 
 </Project>

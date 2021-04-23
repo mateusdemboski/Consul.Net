@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Consul.Net.Microsoft.DependencyInjection\Consul.Net.Microsoft.DependencyInjection.csproj" />
+    <ProjectReference Include="..\..\src\Consul.Net.Util\Consul.Net.Util.csproj" />
   </ItemGroup>
 
 </Project>
