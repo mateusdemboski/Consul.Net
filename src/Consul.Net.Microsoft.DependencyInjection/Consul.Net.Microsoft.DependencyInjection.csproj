@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Build Information">
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Consul.Net</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Label="NuGet Information">
+    <Description>Consul.Net.Microsoft.DependencyInjection is a library with tools to register Consul.Net on Microsoft DI container.</Description>
+    <PackageTags>Consul; Consul.Net; Microsoft Depency Injection; DI; Service Discovery;</PackageTags>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup Label="Package References">
+  </ItemGroup>
+
+  <ItemGroup Label="Project References">
+    <ProjectReference Include="..\Consul.Net\Consul.Net.csproj" />
+  </ItemGroup>
+
+</Project>
