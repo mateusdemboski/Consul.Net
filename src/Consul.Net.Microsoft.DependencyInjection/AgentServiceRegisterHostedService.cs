@@ -45,7 +45,8 @@ namespace Consul.Net
         /// <inheritdoc/>
         public Task StopAsync(CancellationToken cancellationToken = default)
         {
-            return Task.CompletedTask;
+            return this.consulClient.Agent.Service
+                .DeregisterAsync(this.serviceRegister.Id ?? this.serviceRegister.Name, cancellationToken);
         }
     }
 }

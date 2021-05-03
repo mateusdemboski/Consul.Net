@@ -6,6 +6,7 @@ namespace Consul.Net
     using System.Threading.Tasks;
     using Consul.Net.Models;
     using Consul.Net.Util.Http;
+    using Flurl;
 
     /// <inheritdoc/>
     public sealed class AgentServiceResources : IAgentServiceResources
@@ -24,6 +25,32 @@ namespace Consul.Net
         {
             this.httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
             this.httpContentFactory = httpContentFactory ?? throw new ArgumentNullException(nameof(httpContentFactory));
+        }
+
+        /// <inheritdoc/>
+        Task IAgentServiceResources.DeregisterAsync(string serviceId, CancellationToken cancellationToken)
+        {
+            _ = serviceId ?? throw new ArgumentNullException(nameof(serviceId));
+
+            return CreateTask();
+
+            async Task CreateTask()
+            {
+                var url = new Url("deregister")
+                    .AppendPathSegment(serviceId);
+
+                using var content = new StringContent(string.Empty);
+
+                var request = await this.httpClient
+                    .PutAsync(
+                        new Uri(url, UriKind.Relative),
+                        content,
+                        cancellationToken)
+                    .ConfigureAwait(false);
+
+                _ = request
+                    .EnsureSuccessStatusCode();
+            }
         }
 
         /// <inheritdoc/>
