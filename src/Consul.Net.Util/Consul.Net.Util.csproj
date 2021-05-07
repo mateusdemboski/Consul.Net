@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup Label="Build Information">
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -8,8 +8,10 @@
   <PropertyGroup Label="NuGet Information">
     <Description>Consul.Net.Util is a library that provides tools to help building Consul.Net library.</Description>
     <PackageTags>Consul; HttpClient; Service Discovery; Util;</PackageTags>
-    <PackageReleaseNotes></PackageReleaseNotes>
-    <Version>1.0.0</Version>
+    <PackageReleaseNotes>
+      - Add interface and implementation for factory HTTP contents.
+    </PackageReleaseNotes>
+    <Version>1.0.0-preview1</Version>
   </PropertyGroup>
 
   <ItemGroup Label="Package References">
