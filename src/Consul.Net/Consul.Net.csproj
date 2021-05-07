@@ -8,8 +8,11 @@
   <PropertyGroup Label="NuGet Information">
     <Description>Consul.Net is a library to comunicate with Consul Agent API.</Description>
     <PackageTags>Consul; HttpClient; Service Discovery;</PackageTags>
-    <PackageReleaseNotes></PackageReleaseNotes>
-    <Version>1.0.0</Version>
+    <PackageReleaseNotes>
+      - Add Agent Service register resource
+      - Add Agent Service deregister resource
+    </PackageReleaseNotes>
+    <Version>1.0.0-preview1</Version>
   </PropertyGroup>
 
   <ItemGroup Label="Package References">
