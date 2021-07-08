@@ -1,6 +1,10 @@
 namespace Consul.Net
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Consul.Net.Filtering;
+    using Consul.Net.Models;
     using Consul.Net.Util.Http;
     using Flurl;
     using Microsoft.Extensions.DependencyInjection;
@@ -31,7 +35,22 @@ namespace Consul.Net
                         .AppendPathSegments("v1", "agent", "service")
                         .ToUri();
                 }).Services
-                .AddTransient<IAgentResources, AgentResources>()
+                .AddTransient<Func<Func<string, IEnumerable<AgentService>>, IQueryProvider>>(serviceProvider =>
+                    filterExecuter => ActivatorUtilities.CreateInstance<FilterQueryProvider<AgentService>>(
+                        serviceProvider,
+                        filterExecuter))
+                .AddTransient<Func<Func<string, IEnumerable<AgentService>>, IQueryable<AgentService>>>(serviceProvider =>
+                    x => ActivatorUtilities.CreateInstance<FilterQueryable<AgentService>>(
+                        serviceProvider,
+                        serviceProvider.GetRequiredService<Func<Func<string, IEnumerable<AgentService>>, IQueryProvider>>().Invoke(x)))
+                .AddHttpClient<IAgentResources, AgentResources>((serviceProvider, httpClient) =>
+                {
+                    var options = serviceProvider.GetRequiredService<IOptions<ConsulClientOptions>>().Value;
+
+                    httpClient.BaseAddress = options.Address
+                        .AppendPathSegments("v1", "agent")
+                        .ToUri();
+                }).Services
                 .AddTransient<IConsulClient, ConsulClient>();
         }
 

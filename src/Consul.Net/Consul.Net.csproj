@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup Label="Build Information">
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -9,10 +9,10 @@
     <Description>Consul.Net is a library to comunicate with Consul Agent API.</Description>
     <PackageTags>Consul; HttpClient; Service Discovery;</PackageTags>
     <PackageReleaseNotes>
-      - Add Agent Service register resource
-      - Add Agent Service deregister resource
+      - Add Agent services resource;
+      - Add a IQueryable implementation that turns code into Consul Filter Expression;
     </PackageReleaseNotes>
-    <Version>1.0.0-preview1</Version>
+    <Version>1.0.0-preview2</Version>
   </PropertyGroup>
 
   <ItemGroup Label="Package References">

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup Label="Build Information">
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -10,11 +10,9 @@
     <Description>Consul.Net.Microsoft.DependencyInjection is a library with tools to register Consul.Net on Microsoft DI container.</Description>
     <PackageTags>Consul; Consul.Net; Microsoft Depency Injection; DI; Service Discovery;</PackageTags>
     <PackageReleaseNotes>
-      - Add Consul client to DI;
-      - Add HostedService that when registered will automaticly register service
-      on consul when application starts and deregister when application stops;
+      - Update DI requirements for the new implementations on Client.Net library;
     </PackageReleaseNotes>
-    <Version>1.0.0-preview1</Version>
+    <Version>1.0.0-preview2</Version>
   </PropertyGroup>
 
   <ItemGroup Label="Package References">
